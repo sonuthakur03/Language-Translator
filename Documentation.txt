@@ -1,0 +1,138 @@
+### HTML Documentation:
+
+
+
+#### Document Type Declaration:
+- `<!DOCTYPE html>`: Declares the document type and version of HTML being used.
+
+#### `<html>` Element:
+- `<html lang="en">`: Defines the root of an HTML document and specifies the language of the content.
+
+#### `<head>` Element:
+- Contains meta-information about the HTML document such as character set, viewport settings, and links to external resources like stylesheets and scripts.
+
+##### Meta Tags:
+- `<meta charset="UTF-8">`: Sets the character encoding for the document to UTF-8.
+- `<meta name="viewport" content="width=device-width, initial-scale=1.0">`: Configures the viewport for responsive design on mobile devices.
+
+##### External Resources:
+- `<link rel="stylesheet" href="css/index.css">`: Links an external CSS stylesheet.
+- `<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">`: Links the Font Awesome icon library.
+- `<script src="js/index.js" defer></script>`: Links an external JavaScript file with the `defer` attribute for deferred execution.
+- `<script src="js/countries.js" defer></script>`: Links another external JavaScript file with deferred execution.
+
+##### Title:
+- `<title>Langauge Translator</title>`: Sets the title of the HTML document.
+
+#### `<body>` Element:
+- Contains the visible content of the HTML document.
+
+##### Structure:
+- Contains a `<div>` with class `container`, which wraps the entire content.
+- Inside the container, there's a `<div>` with class `wrapper` containing:
+  - Two `<textarea>` elements for input and output text.
+  - `<ul>` element with class `controls` containing control elements like dropdowns and buttons.
+- Finally, a `<button>` for initiating the translation process.
+
+This HTML documentation provides a detailed overview of the structure and elements used in the provided HTML code.
+
+
+
+### CSS Documentation:
+
+
+
+#### Fonts:
+- `@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');`: Imports the Google font "Poppins" for use throughout the document.
+
+#### Reset Styles:
+- `*`: Selects all elements.
+  - `margin: 0; padding: 0; box-sizing: border-box; font-family: "Poppins", sans-serif;`: Resets default margin, padding, and box-sizing behavior for all elements. Sets the default font family to "Poppins".
+
+#### Body Styles:
+- `body`: Selects the `<body>` element.
+  - `display: flex; justify-content: center; align-items: center; flex-direction: column;`: Configures the appearance of the body element, including display properties, alignment, and flex direction.
+  - `min-height: 100vh; background: #5372f0; padding: 0 10px;`: Sets the minimum height of the body to 100% of the viewport height, sets the background color, and adds padding.
+
+#### Container Styles:
+- `.container`: Selects elements with the class `container`.
+  - `background: #fff; max-width: 690px; width: 100%; padding: 30px; border-radius: 7px; box-shadow: 0 10px 20px rgba(0,0,0,0.1);`: Defines the appearance of the main content container, including background, maximum width, padding, border radius, and box shadow.
+
+#### Wrapper Styles:
+- `.wrapper`: Selects elements with the class `wrapper` inside the container.
+  - `border: 1px solid #ccc; border-radius: 7px;`: Styles the wrapper element inside the container, including border and border-radius.
+
+#### Text Input Styles:
+- `.text-input`: Selects elements with the class `text-input` inside the wrapper.
+  - `display: flex; border: 1px solid #ccc;`: Configures the appearance of the text input area, including display properties and border.
+- `.text-input textarea`: Selects `<textarea>` elements inside the text input area.
+  - `height: 250px; width: 100%; outline: none; border: none; resize: none; border-bottom: 1px solid #ccc; background: none; padding: 10px 15px; font-size: 18px; border-radius: 5px;`: Defines the appearance of the text input and output areas, including height, width, border, background, padding, font size, and border-radius.
+- `textarea::placeholder`: Selects the placeholder text inside `<textarea>` elements.
+  - `color: b7b6b6;`: Defines the color of the placeholder text.
+
+#### Scrollbar Styles:
+- `.text-input textarea::-webkit-scrollbar`, `.controls .row select::-webkit-scrollbar`: Selects the scrollbar in webkit-based browsers for `<textarea>` elements and dropdowns.
+  - `width: 4px;`: Configures the width of the scrollbar.
+- `.text-input textarea::-webkit-scrollbar-track`, `.controls .row select::-webkit-scrollbar-track`: Selects the track of the scrollbar.
+  - `background: #fff;`: Sets the background color of the scrollbar track.
+- `.text-input textarea::-webkit-scrollbar-thumb`, `.controls .row select::-webkit-scrollbar-thumb`: Selects the thumb of the scrollbar.
+  - `background: #ddd; border-radius: 8px;`: Defines the appearance of the scrollbar thumb, including background color and border-radius.
+
+#### Controls Styles:
+- `.controls`: Selects elements with the class `controls`.
+  - `list-style: none; padding: 12px 15px;`: Configures the appearance of the control elements, including list style and padding.
+- `.controls .row .icons`: Selects icon elements inside control rows.
+  - `width: 38%;`: Sets the width of the icon container.
+- `.controls .row select`: Selects dropdown elements inside control rows.
+  - `color: #333; border: none; outline: none; background: none; font-size: 18px; padding-right: 5px;`: Styles dropdown elements, including color, border, background, font size, and padding.
+- `.controls .row.from .icons`, `.controls .row.to .icons`: Selects icon elements inside specific control rows.
+  - `padding-right: 15px; border-right: 1px solid #ccc;`, `padding-left: 15px; border-left: 1px solid #ccc;`: Adds padding and border to icon elements for visual separation.
+
+#### Media Queries:
+- `@media(max-width : 660px)`: Applies styles only when the viewport width is 660px or less.
+  - Adjusts padding, layout, font size, and icon size for smaller screens.
+
+#### Button Styles:
+- `.container button`: Selects the translate button inside the container.
+  - `width: 100%; background: #5372f0; color: white; padding: 14px; border: none; outline: none; cursor: pointer; margin-top: 15px; font-size: 17px; border-radius: 7px;`: Defines the appearance of the translate button, including width, background color, text color, padding, border, cursor, margin, font size, and border radius.
+
+This CSS documentation provides a detailed overview of the styles applied to various elements in the provided CSS code.
+
+
+
+### JS Documentation:
+
+#### Variables:
+- `fromText`: Represents the input field where the text to be translated is entered.
+- `toText`: Represents the input field where the translated text will be displayed.
+- `selectTag`: Represents a NodeList of all `<select>` elements in the document.
+- `exchangeBtn`: Represents the button used to exchange the input and output text.
+- `icons`: Represents a NodeList of all `<i>` elements with the class 'icons'.
+- `translateBtn`: Represents the button used to trigger the translation process.
+
+#### Event Listeners:
+1. `exchangeBtn` click event listener: 
+   - Description: When clicked, it swaps the values between the 'fromText' and 'toText' fields, and also swaps the selected languages in the dropdown menus.
+   
+2. `translateBtn` click event listener:
+   - Description: When clicked, it triggers the translation process by sending a request to the translation API, and then updates the 'toText' field with the translated text.
+
+3. `icons` click event listeners:
+   - Description: Handles click events on icon elements (e.g., copy and speech icons) for both 'fromText' and 'toText' fields. It performs actions such as copying text to the clipboard or speaking out the text using the Web Speech API.
+
+#### Fetching and Translation:
+- The translation functionality is implemented using the MyMemory Translation API. The API URL is constructed using the input text and selected languages, and then a fetch request is made to the API endpoint.
+- Upon receiving the response from the API, the translated text is extracted and displayed in the 'toText' field.
+
+#### Initialization:
+- The code initializes the dropdown menus with options for selecting languages. It iterates through each select element and populates it with options based on the 'countries' object.
+- Initially, it selects 'English' as the source language and 'Nepali' as the target language.
+
+#### Clipboard and Speech Synthesis:
+- The code listens for click events on icons representing copy and speech actions. It uses the Clipboard API to copy text to the clipboard and the Web Speech API to synthesize speech from the text.
+
+#### Console Logging:
+- The code logs the value of the second select element's value to the console. This might be for debugging or checking the initial state of the language selection.
+
+### Note:
+- This documentation provides an overview of the code structure, functionality, and major components. For detailed understanding, refer to the comments within the code and any external APIs or libraries used.
